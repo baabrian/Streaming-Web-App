@@ -7,7 +7,9 @@ const StreamItem = (props) => {
             {renderAdmin(props.streamUserId, props.currentUserId, props.streamId)}
             <i className="large middle aligned icon camera" />
             <div className="content">
-                {props.title}
+                <Link to={`/streams/${props.streamId}`} className="header">
+                    {props.title}
+                </Link>
                 <div className="description">
                     {props.description}
                 </div>
@@ -21,7 +23,7 @@ const renderAdmin = (streamUserId, userId, streamId) => {
         return (
             <div className="right floated content">
                 <Link to={`/streams/edit/${streamId}`} className="ui button primary">Edit</Link>
-                <button className="ui button negative">Delete</button>
+                <Link to={`/streams/delete/${streamId}`} className="ui button negative">Delete</Link>
             </div>
         );
     } else {
